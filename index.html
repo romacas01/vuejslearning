@@ -2,7 +2,7 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 <div id="app">
-	<p>{{ title }}</p>
+	<p>{{ sayHello() }}</p>
 </div>
 
 <script>
@@ -10,6 +10,12 @@ new Vue({
 	el: '#app',
 	data: {
 		title: 'Hello World!'
+	},
+	methods: {
+		sayHello: function(){
+			return 'Hello'
+		}
 	}
+
 })
 </script>
