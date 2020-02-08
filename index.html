@@ -2,14 +2,15 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
 <div id="app">
-	<p>{{ sayHello() }}</p>
+	<p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
 </div>
 
 <script>
 new Vue({
 	el: '#app',
 	data: {
-		title: 'Hello World!'
+		title: 'Hello World!',
+		link: 'https://www.google.co.uk/'
 	},
 	methods: {
 		sayHello: function(){
