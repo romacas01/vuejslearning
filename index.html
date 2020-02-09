@@ -7,7 +7,7 @@
 	<hr>
 	<p v-html="linkHtmlString"></p>
 	<hr>
-	<button v-on:click="increaseCount">Click me</button>
+	<button v-on:click="increaseCount(5, $event)">Click me</button>
 	<p>{{counter}}</p>
 	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}}</p>
 </div>
@@ -28,8 +28,9 @@ new Vue({
 			this.title = 'Change title';
 			return this.title;
 		},
-		increaseCount: function() {
-			this.counter++;
+		increaseCount: function(number, event) {
+			this.counter = this.counter + number;
+			console.log(event.target);
 		},
 		updateCoordinates: function(event) {
 			this.x = event.clientX;
