@@ -6,6 +6,9 @@
 	<p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
 	<hr>
 	<p v-html="linkHtmlString"></p>
+	<hr>
+	<button v-on:click="increaseCount">Click me</button>
+	<p>{{counter}}</p>
 </div>
 
 <script>
@@ -14,12 +17,16 @@ new Vue({
 	data: {
 		title: 'Hello World!',
 		link: 'https://www.google.co.uk/',
-		linkHtmlString: '<a href="https://www.google.co.uk/">Google</a>'   
+		linkHtmlString: '<a href="https://www.google.co.uk/">Google</a>',
+		counter: 0  
 	},
 	methods: {
 		sayHello: function(){
 			this.title = 'Change title';
 			return this.title;
+		},
+		increaseCount: function() {
+			this.counter++;
 		}
 	}
 
