@@ -9,7 +9,7 @@
 	<hr>
 	<button v-on:click="increaseCount(5, $event)">Click me</button>
 	<p>{{counter}}</p>
-	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}}</p>
+	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span v-on:mousemove.stop="">Do not update coordinates</span></p>
 </div>
 
 <script>
