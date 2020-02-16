@@ -8,8 +8,11 @@
 	<p v-html="linkHtmlString"></p>
 	<hr>
 	<button v-on:click="increaseCount(5, $event)">Click me</button>
+	<button v-on:click="{{ counter++ }}">Increase counter</button>
 	<p>{{counter}}</p>
+	<p>{{counter > 5 ? 'Greater than 5' : 'Lower than 5'}}</p>
 	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span v-on:mousemove.stop="">Do not update coordinates</span></p>
+	<input type="text" v-on:keyup.enter="alertMe">
 </div>
 
 <script>
@@ -35,6 +38,9 @@ new Vue({
 		updateCoordinates: function(event) {
 			this.x = event.clientX;
 			this.y = event.clientY;
+		},
+		alertMe: function() {
+			alert("ALERT!");
 		}
 	}
 
