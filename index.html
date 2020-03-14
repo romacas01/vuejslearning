@@ -13,6 +13,10 @@
 	<p>{{counter > 5 ? 'Greater than 5' : 'Lower than 5'}}</p>
 	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span v-on:mousemove.stop="">Do not update coordinates</span></p>
 	<input type="text" v-on:keyup.enter="alertMe">
+	<hr>
+	<p>Two way biding field</p>
+	<input type="text" v-model="username">
+	<p>{{username}}</p>
 </div>
 
 <script>
@@ -24,7 +28,8 @@ new Vue({
 		linkHtmlString: '<a href="https://www.google.co.uk/">Google</a>',
 		counter: 0 ,
 		x: 0,
-		y: 0 
+		y: 0,
+		username: 'Rod'
 	},
 	methods: {
 		sayHello: function(){
