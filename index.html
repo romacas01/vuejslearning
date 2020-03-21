@@ -7,12 +7,22 @@
 	<hr>
 	<p v-html="linkHtmlString"></p>
 	<hr>
-	<button v-on:click="increaseCount(5, $event)">Click me</button>
-	<button v-on:click="{{ counter++ }}">Increase counter</button>
-	<p>{{counter}}</p>
-	<p>{{counter > 5 ? 'Greater than 5' : 'Lower than 5'}}</p>
+	<button v-on:click="increaseCount(5, $event)">Click me to increase by 5</button>
+	<button v-on:click="increaseByOne">Increase counter</button>
+	<button v-on:click="resetCounter">Reset Counter</button>
+	<br>
+	<button v-on:click="secondCounter++">Increase second counter</button>
+	<button v-on:click="secondCounter = 0">Reset Second Counter</button>
+	<p>Counter: {{counter}}</p>
+	<p>Second Counter: {{secondCounter}}</p>
+	<p>Result incresing by 5: {{result}}</p>
+	<p>Result incresing second counter: {{output}}</p>
 	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span v-on:mousemove.stop="">Do not update coordinates</span></p>
 	<input type="text" v-on:keyup.enter="alertMe">
+	<br>
+	<p>Testing v-model</p>
+	<input type="text" v-model="username">
+	<p>Username: {{username}}</p>
 </div>
 
 <script>
@@ -23,8 +33,16 @@ new Vue({
 		link: 'https://www.google.co.uk/',
 		linkHtmlString: '<a href="https://www.google.co.uk/">Google</a>',
 		counter: 0 ,
+		secondCounter: 0,
+		result: '',
+		username: 'Rod',
 		x: 0,
 		y: 0 
+	},
+	computed: {
+		output: function() {
+			return this.secondCounter > 5 ? 'Second count is bigger than 5' : 'Second count is lower than 5'
+		}																																					
 	},
 	methods: {
 		sayHello: function(){
@@ -33,7 +51,16 @@ new Vue({
 		},
 		increaseCount: function(number, event) {
 			this.counter = this.counter + number;
+			this.result = this.counter > 5 ? 'Greater than 5' : 'Lower than 5';
 			console.log(event.target);
+		},
+		increaseByOne: function() {
+			this.counter = this.counter + 1;
+			this.result = this.counter > 5 ? 'Greater than 5' : 'Lower than 5';
+		},
+		resetCounter: function() {
+			this.counter = 0;
+			this.result = '';
 		},
 		updateCoordinates: function(event) {
 			this.x = event.clientX;
