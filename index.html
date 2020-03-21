@@ -3,22 +3,22 @@
 
 <div id="app">
 	<h1 v-once>{{title}}</h1>
-	<p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+	<p>{{ sayHello() }} - <a :href="link">Google</a></p>
 	<hr>
 	<p v-html="linkHtmlString"></p>
 	<hr>
-	<button v-on:click="increaseCount(5, $event)">Click me to increase by 5</button>
-	<button v-on:click="increaseByOne">Increase counter</button>
-	<button v-on:click="resetCounter">Reset Counter</button>
+	<button @click="increaseCount(5, $event)">Click me to increase by 5</button>
+	<button @click="increaseByOne">Increase counter</button>
+	<button @click="resetCounter">Reset Counter</button>
 	<br>
-	<button v-on:click="secondCounter++">Increase second counter</button>
-	<button v-on:click="secondCounter = 0">Reset Second Counter</button>
+	<button @click="secondCounter++">Increase second counter</button>
+	<button @click="secondCounter = 0">Reset Second Counter</button>
 	<p>Counter: {{counter}}</p>
 	<p>Second Counter: {{secondCounter}}</p>
 	<p>Result incresing by 5: {{result}}</p>
 	<p>Result incresing second counter: {{output}}</p>
-	<p v-on:mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span v-on:mousemove.stop="">Do not update coordinates</span></p>
-	<input type="text" v-on:keyup.enter="alertMe">
+	<p @mousemove="updateCoordinates">Coordinates: {{x}} / {{y}} - <span @mousemove.stop="">Do not update coordinates</span></p>
+	<input type="text" @keyup.enter="alertMe">
 	<br>
 	<p>Testing v-model</p>
 	<input type="text" v-model="username">
